@@ -187,8 +187,9 @@ local function _send_packet(self, req, size)
     self.packet_no = self.packet_no + 1
 
     -- print("packet no: ", self.packet_no)
+    local packet = _set_byte3(size) .. strchar(self.packet_no) .. req
 
-    local packet = _set_byte3(size) .. strchar(band(self.packet_no, 255)) .. req
+    --local packet = _set_byte3(size) .. strchar(band(self.packet_no, 255)) .. req
 
     -- print("sending packet: ", _dump(packet))
 
